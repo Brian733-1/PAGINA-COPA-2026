@@ -6,36 +6,18 @@
 <title>Contrato da Copa — R$ 29,90</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap');
-
-:root{
-  --verde:#0a5c2e;
-  --verde2:#1a7c4f;
-  --amarelo:#f5c400;
-  --amarelo2:#c9a000;
-  --azul:#003087;
-  --bg:#0d1f0f;
-  --card:#ffffff;
-  --text:#111;
-  --text2:#444;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+:root{--verde:#0a5c2e;--verde2:#1a7c4f;--amarelo:#f5c400;--amarelo2:#c9a000;--azul:#003087;--bg:#0d1f0f;--card:#ffffff;--text:#111;--text2:#444;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
-
-/* BANDEIRAS ANIMADAS */
 .flags-bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;}
 .flag{position:absolute;font-size:28px;opacity:0.07;animation:floatFlag linear infinite;}
 @keyframes floatFlag{0%{transform:translateY(110vh) rotate(0deg);}100%{transform:translateY(-20vh) rotate(360deg);}}
-
-/* TICKER */
 .ticker-wrap{background:var(--amarelo);overflow:hidden;white-space:nowrap;padding:8px 0;position:relative;z-index:2;}
 .ticker-track{display:inline-flex;animation:ticker 28s linear infinite;}
 .ticker-item{font-size:11px;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:1.5px;padding:0 28px;}
 .ticker-item::after{content:'⚽';margin-left:28px;}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-
-/* HERO */
-.hero{position:relative;z-index:1;background:linear-gradient(160deg,#0a2e12 0%,#0d4020 40%,#0a2e12 100%);border-bottom:4px solid var(--amarelo);padding:0 20px 0;overflow:hidden;}
+.hero{position:relative;z-index:1;background:linear-gradient(160deg,#0a2e12 0%,#0d4020 40%,#0a2e12 100%);border-bottom:4px solid var(--amarelo);padding:0 20px;overflow:hidden;}
 .hero-inner{max-width:680px;margin:0 auto;text-align:center;padding:48px 0 40px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,196,0,0.15);border:1px solid rgba(245,196,0,0.4);color:var(--amarelo);font-size:12px;font-weight:700;padding:6px 14px;border-radius:99px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;}
 .hero-flags-row{font-size:28px;letter-spacing:6px;margin-bottom:16px;line-height:1;}
@@ -44,13 +26,15 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overf
 .hero-sub{font-size:clamp(16px,3vw,20px);color:rgba(255,255,255,0.75);margin-bottom:28px;line-height:1.5;max-width:520px;margin-left:auto;margin-right:auto;}
 .hero-sub strong{color:white;}
 
-/* VSL VERTICAL */
+/* VSL */
 .vsl-outer{display:flex;justify-content:center;margin:0 auto 36px;}
 .vsl-wrap{width:100%;max-width:300px;border-radius:20px;overflow:hidden;border:3px solid var(--amarelo);background:#000;aspect-ratio:9/16;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.6);}
-.vsl-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
-.vsl-coming{position:absolute;top:10px;right:10px;background:var(--amarelo);color:var(--verde);font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;letter-spacing:0.5px;}
+.vsl-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+/* BOTÃO SOM */
+.sound-btn{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;background:var(--amarelo);color:var(--verde);border:none;border-radius:99px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:6px;box-shadow:0 4px 16px rgba(0,0,0,0.4);transition:all 0.2s;white-space:nowrap;}
+.sound-btn:hover{background:white;}
+.sound-btn.muted{background:rgba(0,0,0,0.6);color:white;border:1px solid rgba(255,255,255,0.3);}
 
-/* CTA PRINCIPAL */
 .cta-block{background:var(--amarelo);border-radius:16px;padding:28px 24px;max-width:480px;margin:0 auto;text-align:center;}
 .cta-preco-de{font-size:14px;color:rgba(0,0,0,0.45);text-decoration:line-through;font-weight:500;}
 .cta-preco{font-family:'Bebas Neue',sans-serif;font-size:64px;color:var(--verde);line-height:1;letter-spacing:1px;}
@@ -59,22 +43,15 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overf
 .btn-cta{display:block;width:100%;background:var(--verde);color:white;font-size:18px;font-weight:800;padding:18px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;text-align:center;letter-spacing:0.3px;transition:background 0.15s;margin-bottom:10px;}
 .btn-cta:hover{background:var(--verde2);}
 .cta-garantia{font-size:12px;color:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;gap:5px;}
-
-/* SECTION */
 section{position:relative;z-index:1;}
 .section-light{background:#f9f7f0;padding:56px 20px;}
 .section-dark{background:var(--verde);padding:56px 20px;}
 .section-darker{background:#0a1f0c;padding:56px 20px;}
 .section-inner{max-width:680px;margin:0 auto;}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,48px);margin-bottom:8px;}
-.section-title.light{color:var(--text);}
-.section-title.gold{color:var(--amarelo);}
-.section-title.white{color:white;}
+.section-title.light{color:var(--text);}.section-title.gold{color:var(--amarelo);}.section-title.white{color:white;}
 .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
-.section-eyebrow.green{color:var(--verde2);}
-.section-eyebrow.gold{color:var(--amarelo);}
-
-/* COMO FUNCIONA */
+.section-eyebrow.green{color:var(--verde2);}.section-eyebrow.gold{color:var(--amarelo);}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;}
 .step{background:white;border-radius:12px;padding:20px;text-align:center;border:1.5px solid #e5e0d5;transition:border-color 0.15s;}
 .step:hover{border-color:var(--verde2);}
@@ -82,14 +59,10 @@ section{position:relative;z-index:1;}
 .step-icon{font-size:28px;margin-bottom:8px;}
 .step-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
 .step-desc{font-size:13px;color:var(--text2);line-height:1.5;}
-
-/* PARA QUEM */
 .publico-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
 .publico-item{background:rgba(255,255,255,0.1);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:10px;}
 .publico-item .pi{font-size:24px;flex-shrink:0;}
 .publico-item .pt{font-size:14px;color:rgba(255,255,255,0.9);font-weight:500;line-height:1.4;}
-
-/* OBJEÇÕES */
 .faq{margin-top:24px;display:flex;flex-direction:column;gap:12px;}
 .faq-item{border:1.5px solid #e5e0d5;border-radius:10px;overflow:hidden;}
 .faq-q{padding:16px 20px;font-size:14px;font-weight:700;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:white;}
@@ -98,46 +71,32 @@ section{position:relative;z-index:1;}
 .faq-item.open .faq-arrow{transform:rotate(180deg);}
 .faq-a{display:none;padding:0 20px 16px;font-size:14px;color:var(--text2);line-height:1.7;background:white;border-top:1px solid #f0ede6;}
 .faq-item.open .faq-a{display:block;}
-
-/* GARANTIA */
 .garantia-box{background:white;border-radius:16px;padding:28px;text-align:center;border:2px solid var(--verde2);}
 .garantia-icon{font-size:52px;margin-bottom:12px;}
 .garantia-title{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--verde);margin-bottom:8px;}
 .garantia-texto{font-size:14px;color:var(--text2);line-height:1.7;max-width:420px;margin:0 auto;}
-
-/* ACESSO */
 .acesso-lista{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
 .acesso-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;}
 .acesso-item .ai{font-size:20px;flex-shrink:0;margin-top:2px;}
 .acesso-item .at{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.5;}
 .acesso-item .at strong{color:white;}
-
-/* FOOTER CTA */
 .footer-cta{background:linear-gradient(160deg,#0a2e12,#0d4020);padding:56px 20px;text-align:center;border-top:4px solid var(--amarelo);}
 .footer-cta-inner{max-width:520px;margin:0 auto;}
 .footer-flags{font-size:24px;letter-spacing:5px;margin-bottom:16px;}
-
-/* STICKY BOTTOM MOBILE */
 .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--amarelo);padding:12px 20px;z-index:100;border-top:2px solid var(--amarelo2);}
 .sticky-cta a{display:block;background:var(--verde);color:white;text-align:center;padding:14px;border-radius:8px;font-weight:800;font-size:16px;text-decoration:none;}
-
 @media(max-width:600px){
-  .steps{grid-template-columns:1fr;}
-  .publico-grid{grid-template-columns:1fr;}
-  .hero-inner{padding:36px 0 32px;}
-  .sticky-cta{display:block;}
-  .footer-cta{padding-bottom:80px;}
+  .steps{grid-template-columns:1fr;}.publico-grid{grid-template-columns:1fr;}
+  .hero-inner{padding:36px 0 32px;}.sticky-cta{display:block;}.footer-cta{padding-bottom:80px;}
 }
 </style>
 </head>
 <body>
 
-<!-- BANDEIRAS FLUTUANDO -->
 <div class="flags-bg" id="flags-bg"></div>
 
-<!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-track" id="ticker-track">
+  <div class="ticker-track">
     <span class="ticker-item">Não tome calote</span>
     <span class="ticker-item">Atualize o grupo da família</span>
     <span class="ticker-item">Todo mundo respeita um contratinho</span>
@@ -153,26 +112,28 @@ section{position:relative;z-index:1;}
   </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">⚽ Copa do Mundo 2026</div>
     <div class="hero-flags-row">🇧🇷🇦🇷🇫🇷🇩🇪🇪🇸🇵🇹🇳🇱🇮🇹🇺🇸🇲🇽</div>
     <div class="hero-title">Contrato<br><span>da Copa</span></div>
-    <p class="hero-sub">
-      O bolão do seu grupo agora tem <strong>força de lei.</strong><br/>
-      Quem perder paga. E o contrato tá assinado.
-    </p>
+    <p class="hero-sub">O bolão do seu grupo agora tem <strong>força de lei.</strong><br/>Quem perder paga. E o contrato tá assinado.</p>
 
-    <!-- VSL VIMEO -->
+    <!-- VSL VIMEO COM AUTOPLAY MUDO + BOTÃO SOM -->
     <div class="vsl-outer">
       <div class="vsl-wrap">
-        <iframe src="https://player.vimeo.com/video/1199960158?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="demo"></iframe>
+        <iframe id="vimeo-player"
+          src="https://player.vimeo.com/video/1199960158?autoplay=1&muted=1&loop=1&badge=0&autopause=0&player_id=0&app_id=58479"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <button class="sound-btn muted" id="sound-btn" onclick="toggleSound()">
+          🔇 Toque para ouvir
+        </button>
       </div>
     </div>
     <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <!-- CTA -->
     <div class="cta-block">
       <div class="cta-preco-de">De R$ 119,90</div>
       <div class="cta-preco"><span>R$</span> 29<span style="font-size:36px">,90</span></div>
@@ -183,35 +144,18 @@ section{position:relative;z-index:1;}
   </div>
 </section>
 
-<!-- COMO FUNCIONA -->
 <section class="section-light">
   <div class="section-inner">
     <div class="section-eyebrow green">Como funciona</div>
     <div class="section-title light">3 passos e o bolão tá<br/>oficializado ⚡</div>
     <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-icon">⚽</div>
-        <div class="step-title">Cria o contrato</div>
-        <div class="step-desc">Escolhe os times, define o valor e a cláusula do mico. Leva 2 minutos.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-icon">📲</div>
-        <div class="step-title">Manda no grupo</div>
-        <div class="step-desc">Copia o link e joga no WhatsApp. Cada um abre, assina e deixa o palpite.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-icon">🏆</div>
-        <div class="step-title">Ninguém escapa</div>
-        <div class="step-desc">Contrato assinado, histórico salvo, PDF gerado. Quem perder, paga.</div>
-      </div>
+      <div class="step"><div class="step-num">01</div><div class="step-icon">⚽</div><div class="step-title">Cria o contrato</div><div class="step-desc">Escolhe os times, define o valor e a cláusula do mico. Leva 2 minutos.</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-icon">📲</div><div class="step-title">Manda no grupo</div><div class="step-desc">Copia o link e joga no WhatsApp. Cada um abre, assina e deixa o palpite.</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-icon">🏆</div><div class="step-title">Ninguém escapa</div><div class="step-desc">Contrato assinado, histórico salvo, PDF gerado. Quem perder, paga.</div></div>
     </div>
   </div>
 </section>
 
-<!-- PARA QUEM É -->
 <section class="section-dark">
   <div class="section-inner">
     <div class="section-eyebrow gold">Para quem é</div>
@@ -227,7 +171,6 @@ section{position:relative;z-index:1;}
   </div>
 </section>
 
-<!-- ACESSO -->
 <section class="section-darker">
   <div class="section-inner">
     <div class="section-eyebrow gold">O que você leva</div>
@@ -245,69 +188,38 @@ section{position:relative;z-index:1;}
   </div>
 </section>
 
-<!-- GARANTIA -->
 <section class="section-light">
   <div class="section-inner">
     <div class="garantia-box">
       <div class="garantia-icon">🛡️</div>
       <div class="garantia-title">Satisfação garantida</div>
-      <p class="garantia-texto">
-        Se você criar seu primeiro contrato e não ficar satisfeito, devolvo seu dinheiro. Sem burocracia, sem pergunta. Mas honestamente — quando você mandar o link no grupo e ver todo mundo assinando em tempo real, você vai querer criar mais dez.
-      </p>
+      <p class="garantia-texto">Se você criar seu primeiro contrato e não ficar satisfeito, devolvo seu dinheiro. Sem burocracia, sem pergunta. Mas honestamente — quando você mandar o link no grupo e ver todo mundo assinando em tempo real, vai querer criar mais dez.</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ / OBJEÇÕES -->
 <section class="section-light" style="padding-top:0">
   <div class="section-inner">
     <div class="section-eyebrow green">Perguntas frequentes</div>
     <div class="section-title light">Tira as dúvidas<br/>antes de comprar</div>
     <div class="faq">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">R$ 29,90 é caro pra um bolão? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">É menos que uma cerveja. E se você perder uma aposta de R$ 50 porque o cara negou, você já perdeu mais. O contrato paga ele mesmo na primeira vez que alguém tentar dar o calote.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Como acesso depois de comprar? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Você recebe o link de acesso imediatamente após a compra. Entra no <strong>bolaopro.site</strong>, cria seu cadastro com e-mail e senha, e já começa a criar contratos. Acesso vitalício — enquanto a Copa existir, você tem.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Os participantes precisam pagar também? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Não. Só você (o administrador) paga. Os participantes recebem o link, abrem no celular, assinam e deixam o palpite — tudo de graça, sem criar conta, sem baixar nada.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">O contrato tem validade jurídica? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Juridicamente é um contrato informal entre amigos. Mas sinceramente — o poder dele é moral e social. Ninguém quer ser o cara que negou uma aposta assinada na frente do grupo inteiro. Funciona melhor que qualquer advogado.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Funciona em qualquer celular? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sim. iPhone, Android, qualquer browser. Você acessa pelo site, sem precisar baixar nenhum app. Os participantes também abrem direto pelo link no WhatsApp.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Quantos contratos posso criar? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Ilimitados. Cria um pra cada jogo, pra cada fase, pra cada grupo diferente. Um acesso, Copa inteira.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">E depois da Copa, o acesso some? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">O acesso é vitalício. O histórico dos seus contratos fica salvo. E quando vier a próxima Copa, você já está dentro.</div>
-      </div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">R$ 29,90 é caro pra um bolão? <span class="faq-arrow">▾</span></div><div class="faq-a">É menos que uma cerveja. E se você perder uma aposta de R$ 50 porque o cara negou, você já perdeu mais. O contrato paga ele mesmo na primeira vez que alguém tentar dar o calote.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Como acesso depois de comprar? <span class="faq-arrow">▾</span></div><div class="faq-a">Você recebe o link de acesso imediatamente após a compra. Entra no <strong>bolaopro.site</strong>, cria seu cadastro com e-mail e senha, e já começa a criar contratos. Acesso vitalício.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Os participantes precisam pagar também? <span class="faq-arrow">▾</span></div><div class="faq-a">Não. Só você (o administrador) paga. Os participantes recebem o link, abrem no celular, assinam e deixam o palpite — tudo de graça, sem criar conta, sem baixar nada.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">O contrato tem validade jurídica? <span class="faq-arrow">▾</span></div><div class="faq-a">É um contrato informal entre amigos. O poder dele é moral e social. Ninguém quer ser o cara que negou uma aposta assinada na frente do grupo inteiro. Funciona melhor que qualquer advogado.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Funciona em qualquer celular? <span class="faq-arrow">▾</span></div><div class="faq-a">Sim. iPhone, Android, qualquer browser. Sem baixar app. Os participantes também abrem direto pelo link no WhatsApp.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Quantos contratos posso criar? <span class="faq-arrow">▾</span></div><div class="faq-a">Ilimitados. Um pra cada jogo, pra cada fase, pra cada grupo diferente. Um acesso, Copa inteira.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">E depois da Copa, o acesso some? <span class="faq-arrow">▾</span></div><div class="faq-a">O acesso é vitalício. O histórico fica salvo. E quando vier a próxima Copa, você já está dentro.</div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER CTA -->
 <div class="footer-cta">
   <div class="footer-cta-inner">
     <div class="footer-flags">🇧🇷🏆⚽🥇🎉</div>
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,7vw,56px);color:var(--amarelo);margin-bottom:8px;line-height:1">
-      Bora oficializar<br/>o bolão?
-    </div>
-    <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:28px;line-height:1.6">
-      Pelo preço de uma cerveja, ninguém escapa mais.<br/>
-      <strong style="color:white">Acesso vitalício · Copa 2026 inteira · Sem mensalidade</strong>
-    </p>
-    <div class="cta-block" style="background:var(--amarelo)">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,7vw,56px);color:var(--amarelo);margin-bottom:8px;line-height:1">Bora oficializar<br/>o bolão?</div>
+    <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:28px;line-height:1.6">Pelo preço de uma cerveja, ninguém escapa mais.<br/><strong style="color:white">Acesso vitalício · Copa 2026 inteira · Sem mensalidade</strong></p>
+    <div class="cta-block">
       <div class="cta-preco-de">De R$ 119,90</div>
       <div class="cta-preco"><span>R$</span> 29<span style="font-size:36px">,90</span></div>
       <div class="cta-descricao">Pagamento único · Acesso imediato</div>
@@ -317,24 +229,45 @@ section{position:relative;z-index:1;}
   </div>
 </div>
 
-<!-- STICKY MOBILE -->
 <div class="sticky-cta">
   <a href="https://pay.contratodacopa.com.br">⚽ Garantir acesso — R$ 29,90</a>
 </div>
 
 <script>
-// BANDEIRAS FLUTUANDO
+// BANDEIRAS
 const flags=['🇧🇷','🇦🇷','🇫🇷','🇩🇪','🇪🇸','🇵🇹','🇳🇱','🇮🇹','🇲🇽','🇺🇸','🇯🇵','🇸🇳','🇭🇷','🇲🇦','🏆','⚽','🥇'];
 const bg=document.getElementById('flags-bg');
 for(let i=0;i<40;i++){
-  const el=document.createElement('div');
-  el.className='flag';
+  const el=document.createElement('div');el.className='flag';
   el.textContent=flags[Math.floor(Math.random()*flags.length)];
   el.style.left=Math.random()*100+'%';
   el.style.animationDuration=(12+Math.random()*20)+'s';
   el.style.animationDelay=(-Math.random()*20)+'s';
   el.style.fontSize=(18+Math.random()*24)+'px';
   bg.appendChild(el);
+}
+
+// VIMEO SOM
+let player=null;let isMuted=true;
+window.addEventListener('load',()=>{
+  const iframe=document.getElementById('vimeo-player');
+  if(window.Vimeo){player=new Vimeo.Player(iframe);}
+});
+function toggleSound(){
+  const btn=document.getElementById('sound-btn');
+  if(!player)return;
+  if(isMuted){
+    player.setMuted(false);
+    player.setVolume(1);
+    isMuted=false;
+    btn.textContent='🔊 Som ligado';
+    btn.classList.remove('muted');
+  } else {
+    player.setMuted(true);
+    isMuted=true;
+    btn.textContent='🔇 Toque para ouvir';
+    btn.classList.add('muted');
+  }
 }
 
 // FAQ
@@ -345,7 +278,7 @@ function toggleFaq(el){
   if(!isOpen)item.classList.add('open');
 }
 
-// STICKY CTA — some quando CTA principal está visível
+// STICKY
 const observer=new IntersectionObserver(entries=>{
   const sticky=document.querySelector('.sticky-cta');
   if(sticky)sticky.style.display=entries[0].isIntersecting?'none':'block';
